@@ -1,0 +1,30 @@
+<!-- search -->
+<div class="main-content">
+  <div id="myDropdown" class="dropdown-content">
+    <input type="search"
+           [(ngModel)]="searchInput.key"
+           (keyup)="searchForUserDetails($event)"
+           placeholder="Search users by ID, address, name, items, pincode"
+           id="myInput">
+  </div>
+</div>
+
+<!-- when user not found-->
+<div *ngIf="data.length==0 && searchInput.key !='';">
+  <ng-container class="card-body">
+    <p id="notfound" class="card-title">No User Found</p>
+  </ng-container>
+</div>
+
+<!-- when user found with given key-->
+<div *ngIf="data.length>0 && searchInput.key !=''" class="list">
+  <div on-mouseover='onMouseHover(i)'
+       class="card" *ngFor="let details of data;let i = index"
+       [ngClass]="{'selected': i === keyCount}">
+    <div class="card-body">
+      <h5 class="card-title">{{details.id}}</h5>
+      <h6 style="font-style: italic">{{details.name}}</h6>
+      <p class="card-text">{{details.address}}</p>
+    </div>
+  </div>
+</div>
