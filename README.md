@@ -19,7 +19,7 @@ To install the CLI using npm, open a terminal/console window and enter the follo
 #### Step-3
 After installing angular/cli in your machine, now navigate to project folder.
 
-`cd task`
+`cd angular_task`
 
 Run the following command to install the node modules.
 
